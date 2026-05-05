@@ -2,13 +2,6 @@
 
 Cuda 6.0 compute simulation layer from Pascal to limited-tensors 7.5.
 
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/README.md b/README.md
-index e18187013d7af6ff232d62db3284d66b91ce1de0..382e5f983a3a5cdb41a0bb0ac419f716758d68eb 100644
---- a/README.md
-+++ b/README.md
-@@ -1,8 +1,28 @@
-
 +# nvidia-smi shim scaffold
 +
 +This repository now contains a Linux-oriented shim architecture split by layer:
@@ -37,9 +30,7 @@ index e18187013d7af6ff232d62db3284d66b91ce1de0..382e5f983a3a5cdb41a0bb0ac419f716
 +
 +- **TCC**: low-latency direct sample path (`GET_SAMPLE` returns each poll).
 +- **WDDM-emu**: batched reads and stricter rate behavior (`-EAGAIN` until batch boundary).
- 
-EOF
-)
+
 
 ## Build & Test
 
