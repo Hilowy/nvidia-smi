@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cc: [gcc, clang]
+
+    env:
+      CC: ${{ matrix.cc }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential make clang
+
+      - name: Versions
+        run: |
+          $CC --version
+          make --version
+
+      - name: Lint
+        run: make lint
+
+      - name: Test
+        run: make test
