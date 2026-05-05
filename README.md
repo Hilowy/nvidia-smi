@@ -1,6 +1,9 @@
 # nvidia-smi
 
-[![CI](https://github.com/Hilowy/nvidia-smi/actions/workflows/ci.yml/badge.svg)](https://github.com/Hilowy/nvidia-smi/actions/workflows/ci.yml)
+[![CI](https://github.com/hilowy/nvidia-smi/actions/workflows/ci.yml/badge.svg)] (https://github.com/hilowy/nvidia-smi/actions/workflows/ci.yml)
+
+```md
+[![CI](https://github.com/hilowy/nvidia-smi/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hilowy/nvidia-smi/workflows/ci.yml?query=branch%3Amain)
 
 Cuda 6.0 compute simulation layer from Pascal to limited-tensors 7.5.
 
