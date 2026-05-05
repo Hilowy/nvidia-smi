@@ -18,7 +18,7 @@ Behavior:
 - When uncertain, inspect before modifying
 
 
-## Working step's on point structure.
+## Working step's on directory structure.
 - kernel driver (strict, minimal).
 - user-space driver shim (translation + validation).
 - policy engine (model inference).
@@ -26,4 +26,4 @@ Behavior:
 - define core layer in 'main->library'
 - define parameters of each function 'main->decode'
 - define rules in 'main->exceptions'
-- define hardware ID's 'main-support'
+- define hardware ID's 'main->support'
