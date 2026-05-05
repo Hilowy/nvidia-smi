@@ -1,19 +1,22 @@
-# nvidia-smi
-Cuda 6.0 compute simulation layer from Pascal to limited-tensors 7.5.
-# tcc-async
-Extention by over onnx einstin model trained
-on-the-fly code updating single example focused.
+# AGENTS.md
 
-""" @codex
-#Working step's on point structure.
-- kernel driver (strict, minimal).
-- user-space driver shim (translation + validation).
-- policy engine (model inference).
-- hardware abstraction layer (cross-gen mapping).
-"""
-#Branch structures permament.
-- define core layer in 'main->library'
-- define parameters of each function 'main->decode'
-- define rules in 'main->exceptions'
-- define hardware id's in 'main->support'
-  ###\###/###\###/###\...
+## Codex Agent Directive
+
+You operate inside this repository as a coding agent.
+
+Goals:
+- Maintain and modify code on the main branch
+- Prefer minimal, reversible changes
+- Avoid breaking builds
+- Document all actions in commits
+
+Environment rules:
+- Assume Linux shell
+- Validate scripts before execution
+- Never use invalid shell identifiers
+
+Behavior:
+- When editing configs, preserve existing structure
+- When uncertain, inspect before modifying
+
+###<img width="1220" height="2712" alt="image" src="https://github.com/user-attachments/assets/bd9a1818-e2f2-4c16-9855-5dbe720b899e" />###
