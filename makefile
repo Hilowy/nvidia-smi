@@ -2,7 +2,7 @@ CC      := gcc
 CFLAGS  := -std=c11 -O2 -Wall -Wextra -Werror -pedantic
 CPPFLAGS:= -I./main/library -I./main/decode -I./main/exceptions -I./main/support
 
-SRC_DECODE := main/decoder/decode_workload.c
+SRC_DECODE := main/decode/decode_workload.c
 SRC_POLICY := main/exceptions/policy_rules.c
 SRC_IDS    := main/support/hw_ids.c
 
