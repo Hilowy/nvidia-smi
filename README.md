@@ -2,13 +2,6 @@
 
 Cuda 6.0 compute simulation layer from Pascal to limited-tensors 7.5.
 
-## Build & Test
-
-```bash
-make lint
-make test
-
-
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/README.md b/README.md
 index e18187013d7af6ff232d62db3284d66b91ce1de0..382e5f983a3a5cdb41a0bb0ac419f716758d68eb 100644
@@ -47,3 +40,9 @@ index e18187013d7af6ff232d62db3284d66b91ce1de0..382e5f983a3a5cdb41a0bb0ac419f716
  
 EOF
 )
+
+## Build & Test
+
+```bash
+make lint
+make test
