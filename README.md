@@ -1,4 +1,4 @@
-# nvidia-smi
+# linux nvidia-smi
 
 Cuda 6.0 compute simulation layer from Pascal to limited-tensors 7.5.
 
@@ -9,10 +9,41 @@ make lint
 make test
 
 
-{###
-# tcc-async
-Extention by over onnx einstin model trainedon-the-fly code updating single example focused.
-# experimental
-- Layer of ID' spoofing, workload matrix multipling,..- Layer of opensdk-kernal unix.
-- Layer policy, transfare, wide support.
-###}
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/README.md b/README.md
+index e18187013d7af6ff232d62db3284d66b91ce1de0..382e5f983a3a5cdb41a0bb0ac419f716758d68eb 100644
+--- a/README.md
++++ b/README.md
+@@ -1,8 +1,28 @@
+
++# nvidia-smi shim scaffold
++
++This repository now contains a Linux-oriented shim architecture split by layer:
++
++- `main/library/`: core shared interfaces and ABI-safe payload types.
++- `main/decode/`: function parameter and decode logic docs.
++- `main/exceptions/`: validation and mode-rule definitions.
++- `main/support/`: hardware ID and capability mapping table.
++- `kernel_driver/`: kernel-facing `/dev/nvshim0` sampling stub.
++- `user_shim/`: user-space decoder into policy-friendly workload frames.
++
++## End-to-end flow
++
++1. **Kernel sampler** (`kernel_driver/nvshim_kmod_stub.c`) emits synthetic PCIe + tensor counters at a fixed cadence.
++2. **Device/ioctl boundary** (`main/library/nvshim_api.h`) exposes fixed-size, versioned payloads via:
++   - `NVSHIM_IOCTL_SET_MODE`
++   - `NVSHIM_IOCTL_GET_SAMPLE`
++   - `NVSHIM_IOCTL_GET_CAPS`
++3. **User shim decode** (`user_shim/nvshim_decode.c`) validates BDF, sequence IDs, and monotonic timestamps.
++4. **Policy input** receives normalized workload frames with stable mode labels:
++   - `tcc-low-latency`
++   - `wddm-emu-batched`
++   - `auto`
++
++## Mode behavior
++
++- **TCC**: low-latency direct sample path (`GET_SAMPLE` returns each poll).
++- **WDDM-emu**: batched reads and stricter rate behavior (`-EAGAIN` until batch boundary).
+ 
+EOF
+)
